@@ -40,8 +40,8 @@ export default function Hero(props) {
           <div className="row" style={{marginTop: "80px"}}>
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                width="36px"
-                height="36px"
+                width="36"
+                height="36"
                 src={IconTraveler}
                 alt={`${props.data.travelers} Travelers`}
               />
@@ -54,8 +54,8 @@ export default function Hero(props) {
             </div>
             <div className="col-auto" style={{ marginRight: 35 }}>
               <img
-                width="36px"
-                height="36px"
+                width="36"
+                height="36"
                 src={IconTreasure}
                 alt={`${props.data.treasures} Treasures`}
               />
@@ -68,8 +68,8 @@ export default function Hero(props) {
             </div>
             <div className="col-auto">
               <img
-                width="36px"
-                height="36px"
+                width="36"
+                height="36"
                 src={IconCities}
                 alt={`${props.data.cities} Cities`}
               />
@@ -87,13 +87,13 @@ export default function Hero(props) {
               src={HeroJPG}
               alt="Room With couchess"
               className="img-fluid position-absolute"
-              style={{ margin: "-30 0 0 -30px", zIndex: 1 }}
+              style={{ margin: "-30px 0 0 -30px", zIndex: 1 }}
             />
             <img
               src={HeroJPGFrame}
               alt="Room With couchess frame"
               className="img-fluid position-absolute"
-              style={{ margin: "0 -15px -15px 0", zIndex: 0 }}
+              style={{ margin: "0 -15px -15px 0"}}
             />
           </div>
         </div>
