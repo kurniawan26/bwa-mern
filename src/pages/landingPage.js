@@ -7,6 +7,7 @@ import Categories from "parts/Categories";
 import Testimoni from 'parts/Testimoni'
 import LandingPage from "json/landingPage.json";
 import Footer from "parts/Footer";
+import Example from "./Example";
 
 
 export default class landingPage extends Component {
@@ -26,6 +27,7 @@ export default class landingPage extends Component {
         <Categories data={LandingPage.categories}/>
         <Testimoni data={LandingPage.testimonial}/>
         <Footer/>
+        <Example/>
       </>
     );
   }
