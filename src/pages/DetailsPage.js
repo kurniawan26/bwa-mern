@@ -37,7 +37,7 @@ export default class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={ItemDetails} />
+                <BookingForm ItemDetails={ItemDetails} />
               </Fade>
             </div>
           </div>
