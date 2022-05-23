@@ -3,24 +3,25 @@ import propTypes from "prop-types";
 
 import "./index.scss";
 
-function Text(props) {
+export default function Text(props) {
   const {
-    name,
     value,
-    prepend,
-    append,
     type,
     placeholder,
+    name,
+    prepend,
+    append,
     outerClassName,
     inputClassName,
     errorResponse,
   } = props;
-  const [hasError, setHasError] = useState(null);
+
+  const [HasError, setHasError] = useState(null);
   let pattern = "";
-  if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+s/;
+  if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (type === "tel") pattern = "[0-9]*";
 
-  const changeOn = (event) => {
+  const onChange = (event) => {
     const target = {
       target: {
         name: name,
@@ -34,13 +35,14 @@ function Text(props) {
     }
 
     if (type === "tel") {
-      if (!pattern.test(event.target.value)) props.onChange(target);
+      if (event.target.validity.valid) props.onChange(target);
     } else {
       props.onChange(target);
     }
   };
+
   return (
-    <div className={["input-text mb-3", outerClassName].join("")}>
+    <div className={["input-text mb-3", outerClassName].join(" ")}>
       <div className="input-group">
         {prepend && (
           <div className="input-group-prepend bg-gray-900">
@@ -51,10 +53,10 @@ function Text(props) {
           name={name}
           type={type}
           pattern={pattern}
-          className={["form-control", inputClassName].join("")}
+          className={["form-control", inputClassName].join(" ")}
           value={value}
           placeholder={placeholder}
-          onChange={changeOn}
+          onChange={onChange}
         />
         {append && (
           <div className="input-group-append bg-gray-900">
@@ -62,17 +64,16 @@ function Text(props) {
           </div>
         )}
       </div>
-      {hasError && <span className="error-helper">{hasError}</span>}
+      {HasError && <span className="error-helper">{HasError}</span>}
     </div>
   );
 }
 
-
 Text.defaultProps = {
-  type: "Text",
+  type: "text",
   pattern: "",
-  placeholder: "Please Type here",
-  errorResponse: "Please match the requested format",
+  placeholder: "Please type here...",
+  errorResponse: "Please match the requested format.",
 };
 
 Text.propTypes = {
@@ -86,5 +87,3 @@ Text.propTypes = {
   outerClassName: propTypes.string,
   inputClassName: propTypes.string,
 };
-
-export default Text;

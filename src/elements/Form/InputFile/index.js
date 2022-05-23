@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import propTypes from "prop-types";
 
-import "./index.scss";
+// import "./index.scss";
 
 function File(props) {
   const {

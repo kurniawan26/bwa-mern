@@ -20,7 +20,7 @@ export default class BookingForm extends Component {
     };
   }
 
-  updateDate = (e) => {
+  updateData = (e) => {
     this.setState({
       ...this.state,
       data: {
@@ -65,14 +65,15 @@ export default class BookingForm extends Component {
 
   render() {
     const { data } = this.state;
-    const { itemDetails, startBooking } = this.props;
+    const { ItemDetails, startBooking } = this.props;
+
     return (
       <div className="card bordered" style={{ padding: "60px 80px" }}>
         <h4 className="mb-3">Start Booking</h4>
         <h5 className="h2 text-teal mb-4">
-          ${itemDetails.price}{" "}
+          ${ItemDetails.price}{" "}
           <span className="text-gray-500 font-weight-light">
-            per {itemDetails.unit}
+            per {ItemDetails.unit}
           </span>
         </h5>
 
@@ -81,30 +82,25 @@ export default class BookingForm extends Component {
           max={30}
           suffix={" night"}
           isSuffixPlural
-          onChange={this.updateDate}
+          onChange={this.updateData}
           name="duration"
           value={data.duration}
         />
 
         <label htmlFor="date">Pick a date</label>
-        <InputDate
-          max={30}
-          onChange={this.updateDate}
-          name="date"
-          value={data.date}
-        />
+        <InputDate onChange={this.updateData} name="date" value={data.date} />
 
         <h6
           className="text-gray-500 font-weight-light"
-          style={{ marginBlock: 40 }}
+          style={{ marginBottom: 40 }}
         >
           You will pay{" "}
           <span className="text-gray-900">
-            ${itemDetails.price * data.duration} USD
+            ${ItemDetails.price * data.duration} USD
           </span>{" "}
           per{" "}
           <span className="text-gray-900">
-            {data.duration} {itemDetails.unit}
+            {data.duration} {ItemDetails.unit}
           </span>
         </h6>
 
@@ -114,8 +110,9 @@ export default class BookingForm extends Component {
           isPrimary
           isBlock
           onClick={startBooking}
+          
         >
-          Continue To Book
+          Continue to Book
         </Button>
       </div>
     );
@@ -123,6 +120,7 @@ export default class BookingForm extends Component {
 }
 
 BookingForm.propTypes = {
-  itemDetails: propTypes.object,
+  ItemDetails: propTypes.object,
   startBooking: propTypes.func,
 };
+ 
